@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .no-button {
+            position: relative;
+        }
+        .no-button:hover {
+            left: calc(50% - 50px);s
+            top: calc(50% - 50px);
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <button class="no-button">No</button>
+    </div>
+</body>
+</html>
+<div class="container">
+    <h1>Eres anómala noelia</h1>
+    <button class="yes-button">Sí</button>
+    <button class="no-button">No</button>
+</div>
+
+<script>
+    const noButton = document.querySelector('.no-button');
+    noButton.addEventListener('mouseover', () => {
+        const container = noButton.parentElement;
+        const containerRect = container.getBoundingClientRect();
+        const buttonRect = noButton.getBoundingClientRect();
+        
+        const newLeft = Math.random() * (containerRect.width - buttonRect.width);
+        const newTop = Math.random() * (containerRect.height - buttonRect.height);
+        
+        noButton.style.position = 'absolute';
+        noButton.style.left = `${newLeft}px`;
+        noButton.style.top = `${newTop}px`;
+    });
+</script>
